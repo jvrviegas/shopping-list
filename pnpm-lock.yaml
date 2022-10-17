@@ -20,6 +20,7 @@ specifiers:
   next: 12.3.1
   postcss: ^8.4.18
   prettier: ^2.7.1
+  prisma: ^4.4.0
   react: 18.2.0
   react-dom: 18.2.0
   tailwindcss: ^3.1.8
@@ -49,6 +50,7 @@ devDependencies:
   eslint-plugin-react: 7.31.10_eslint@8.25.0
   postcss: 8.4.18
   prettier: 2.7.1
+  prisma: 4.4.0
   tailwindcss: 3.1.8_postcss@8.4.18
   typescript: 4.8.4
 
@@ -264,6 +266,11 @@ packages:
       picocolors: 1.0.0
       tiny-glob: 0.2.9
       tslib: 2.4.0
+    dev: true
+
+  /@prisma/engines/4.4.0:
+    resolution: {integrity: sha512-Fpykccxlt9MHrAs/QpPGpI2nOiRxuLA+LiApgA59ibbf24YICZIMWd3SI2YD+q0IAIso0jCGiHhirAIbxK3RyQ==}
+    requiresBuild: true
     dev: true
 
   /@rushstack/eslint-patch/1.2.0:
@@ -2180,6 +2187,15 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: true
+
+  /prisma/4.4.0:
+    resolution: {integrity: sha512-l/QKLmLcKJQFuc+X02LyICo0NWTUVaNNZ00jKJBqwDyhwMAhboD1FWwYV50rkH4Wls0RviAJSFzkC2ZrfawpfA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.4.0
     dev: true
 
   /prop-types/15.8.1:
