@@ -22,9 +22,11 @@ export default function CategoriesPage({ categories }: CategoriesPageProps) {
   }
 
   return (
-    <div className="flex w-full flex-col gap-8 overflow-hidden sm:max-w-lg">
-      <div className="flex items-start justify-end">
-        <Button onClick={redirectToCreateCategory}>Criar categoria</Button>
+    <div className="flex w-full flex-col gap-6 overflow-hidden sm:max-w-lg">
+      <h1 className="self-center text-2xl font-semibold">Categories</h1>
+
+      <div className="flex items-start justify-center">
+        <Button onClick={redirectToCreateCategory}>New category</Button>
       </div>
 
       <ul className="grid gap-2 overflow-auto">
