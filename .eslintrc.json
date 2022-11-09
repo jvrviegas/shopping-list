@@ -12,7 +12,7 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "tsconfig.json"
+    "project": ["./tsconfig.json"]
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
@@ -21,7 +21,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx"]
+        "extensions": [".ts", ".tsx"]
       }
     ],
     "import/extensions": [
@@ -38,6 +38,7 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
     "prettier/prettier": "error"
   },
   "settings": {
