@@ -9,7 +9,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: '/login',
+    signIn: '/',
   },
 };
 export default NextAuth(authOptions);

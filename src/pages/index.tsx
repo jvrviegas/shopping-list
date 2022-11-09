@@ -1,34 +1,40 @@
-import type { GetServerSidePropsContext, NextPage } from 'next';
-import { signOut } from 'next-auth/react';
+import { GetServerSidePropsContext } from 'next';
+import { getSession } from 'next-auth/react';
 import Image from 'next/image';
 
-import { withAuth } from '../utils/withAuth';
+import { Form } from '../components/Form';
 
-const Home: NextPage = () => {
-  async function handleSignOut() {
-    await signOut();
-  }
-
+export default function SignIn() {
   return (
-    <div className="flex flex-col min-h-full items-center py-12 px-4 bg-gray-900 sm:px-6 lg:px-8 lg:max-w-2xl lg:min-h-fit lg:mt-40 lg:mx-auto lg:rounded-xl lg:shadow-lg lg:shadow-gray-800 ">
-      <div className="flex flex-col items-center justify-center mb-10">
+    <div className="flex min-h-full flex-col items-center bg-gray-900 py-40 px-8 sm:px-6 lg:mx-auto lg:mt-40 lg:min-h-fit lg:max-w-2xl lg:rounded-xl lg:px-8 lg:shadow-lg lg:shadow-gray-800 ">
+      <div className="mb-10 flex flex-col items-center justify-center">
         <p>Bem vindo ao</p>
-        <h1 className="text-2xl mb-4 lg:text-3xl">Shopping List</h1>
+        <h1 className="mb-4 text-2xl lg:text-3xl">Shopping List</h1>
         <Image src="/images/shopping-list-logo.png" width="120" height="120" />
+
+        <p className="mt-4 text-center">
+          Faça o login para acessar a aplicação:
+        </p>
       </div>
 
-      <button
-        onClick={handleSignOut}
-        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      >
-        Sign Out
-      </button>
+      <Form />
     </div>
   );
-};
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return await withAuth(context);
 }
 
-export default Home;
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}
